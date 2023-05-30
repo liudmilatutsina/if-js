@@ -15,13 +15,15 @@ console.log(user);
 let test = 1;
 test++; //test = 2
 
-console.log(test);
-
-test--; //test = 1
+test += '1'; //test = 21
 
 console.log(test);
 
-test = Boolean(test); //test = true, as 1 - true, 0 - false
+test--; //test = 20
+
+console.log(test);
+
+test = Boolean(test); //test = true, as 0 - false, not 0 - true
 
 console.log(test);
 
