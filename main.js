@@ -1,50 +1,58 @@
 //#1
-let user = 'John Doe';
-
-console.log(user);
-
-const student = 'Liudmila Tutsina';
-
-console.log(student);
-
-user = student; //user = student = Liudmila Tutsina
-
-console.log(user);
+((str) => {
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== str[str.length - i - 1]) {
+      return false;
+    }
+  }
+  return true;
+})('шалаш');
 
 //#2
-let test = 1;
-test++; //test = 2
+function min(a, b) {
+  if (a < b) {
+    return a;
+  }
+  return b;
+}
 
-test += '1'; //test = 21
+function max(a, b) {
+  if (a > b) {
+    return a;
+  }
+  return b;
+}
 
-console.log(test);
+//function min with ternary operator
+function min_t(a, b) {
+  return a < b ? a : b;
+}
 
-test--; //test = 20
+//function max with ternary operator
+function max_t(a, b) {
+  return a > b ? a : b;
+}
 
-console.log(test);
-
-test = Boolean(test); //test = true, as 0 - false, not 0 - true
-
-console.log(test);
+max(30, 3);
+min(30, 3);
+max_t(30, 3);
+min_t(30, 3);
 
 //#3
-const array = [2, 3, 5, 8];
-let mult = 1;
 
-for (let i = 0; i < array.length; i++) {
-  mult *= array[i];
+const arr = [];
+
+for (let i = 0; i < 10; i++) {
+  arr[i] = Math.floor(Math.random() * 101);
 }
 
-console.log(mult);
-
-//#4-5
-const array1 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < array1.length; i++) {
-  if (array1[i] > 5 && array1[i] < 10) {
-    console.log('> 5 && < 10: ' + array1[i]);
+function zero_replacer(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].toString().includes('0')) {
+      arr[i] = arr[i].toString().replace('0', 'zero');
+    }
   }
-  if (array1[i] % 2 === 0 && array1[i] !== 0) {
-    console.log('even: ' + array1[i]);
-  }
+  return arr;
 }
+
+console.log(zero_replacer(arr));
