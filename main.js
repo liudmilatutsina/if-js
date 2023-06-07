@@ -54,7 +54,9 @@ for (let i = 0; i < 10; i++) {
 function zero_replacer_1(arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].toString().includes('0')) {
-      arr[i] = arr[i].toString().replace(/0/g, 'zero');
+      arr[i] = arr[i].toString().replace(/0/g, 'zero'); // - 1 variant
+      //arr[i] = arr[i].split('0').join('zero'); - 2 variant
+      //arr[i] = arr[i].replaceAll('0','zero'); - 3 variant
     }
   }
   return arr;
