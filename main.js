@@ -1,65 +1,43 @@
-//#1 - variant 1
-((str) => {
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] !== str[str.length - i - 1]) {
-      return false;
-    }
+// #1
+function sum (a) {
+  return function(b) {
+    return a + b;
   }
-  return true;
-})('шалаш');
+}
 
-//#1 - variant 2
-((str) => {
-  return str.split('').reverse().join() === str;
-})('шалаш');
+console.log(sum(5)(2));
 
-//#2
-function min(a, b) {
-  if (a < b) {
-    return a;
+// #2
+
+const COLORS = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+
+const text1 = document.getElementById('text1');
+const text2 = document.getElementById('text2');
+const text3 = document.getElementById('text3');
+
+let clickCountText1 = 0;
+let clickCountText2 = 0;
+let clickCountText3 = 0;
+
+text1.addEventListener('click',(event) => {
+    event.target.style.color = COLORS[colorParagraph(clickCountText1)];
+    clickCountText1++;
   }
-  return b;
-}
+)
 
-function max(a, b) {
-  if (a > b) {
-    return a;
+text2.addEventListener('click',(event) => {
+    event.target.style.color = COLORS[colorParagraph(clickCountText2)];
+    clickCountText2++;
   }
-  return b;
-}
+)
 
-//function min with ternary operator
-function min_t(a, b) {
-  return a < b ? a : b;
-}
-
-//function max with ternary operator
-function max_t(a, b) {
-  return a > b ? a : b;
-}
-
-max(30, 3);
-min(30, 3);
-max_t(30, 3);
-min_t(30, 3);
-
-//#3 - 1 variant
-
-const arr = [];
-
-for (let i = 0; i < 10; i++) {
-  arr[i] = Math.floor(Math.random() * 101);
-}
-
-function zero_replacer_1(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].toString().includes('0')) {
-      arr[i] = arr[i].toString().replace(/0/g, 'zero'); // - 1 variant
-      //arr[i] = arr[i].split('0').join('zero'); - 2 variant
-      //arr[i] = arr[i].replaceAll('0','zero'); - 3 variant
-    }
+text3.addEventListener('click',(event) => {
+    event.target.style.color = COLORS[colorParagraph(clickCountText3)];
+    clickCountText3++;
   }
-  return arr;
-}
+)
 
-console.log(zero_replacer_1(arr));
+function colorParagraph (clickCount) {
+  console.log(clickCount + " % " + COLORS.length + " = " + clickCount % COLORS.length);
+  return clickCount % COLORS.length;
+}
