@@ -37,4 +37,4 @@ function colorParagraph(clickCount) {
   return clickCount % COLORS.length;
 }
 
-export {sum, colorParagraph};
+export { sum, colorParagraph };

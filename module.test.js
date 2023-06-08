@@ -1,4 +1,4 @@
-import {sum, colorParagraph} from './main.js';
+import { sum, colorParagraph } from './main.js';
 
 test('1 + 2 = 3', () => {
   expect(sum(1)(2)).toBe(3);
