@@ -32,7 +32,6 @@ function colorParagraph() {
     event.target.style.color = COLORS[colorNum(clickCountText3, COLORS)];
     clickCountText3++;
   });
-
 }
 function colorNum(clickCount, COLORS) {
   return clickCount % COLORS.length;
