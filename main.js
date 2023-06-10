@@ -7,7 +7,7 @@ function sum(a) {
 console.log(sum(5)(2));
 
 // #2
-function colorParagraph () {
+function colorParagraph() {
   const COLORS = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
   const text1 = document.getElementById('text1');
@@ -19,23 +19,25 @@ function colorParagraph () {
   let clickCountText3 = 0;
 
   text1.addEventListener('click', (event) => {
-    event.target.style.color = COLORS[colorNum(clickCountText1)];
+    event.target.style.color = COLORS[colorNum(clickCountText1, COLORS)];
     clickCountText1++;
   });
 
   text2.addEventListener('click', (event) => {
-    event.target.style.color = COLORS[colorNum(clickCountText2)];
+    event.target.style.color = COLORS[colorNum(clickCountText2, COLORS)];
     clickCountText2++;
   });
 
   text3.addEventListener('click', (event) => {
-    event.target.style.color = COLORS[colorNum(clickCountText3)];
+    event.target.style.color = COLORS[colorNum(clickCountText3, COLORS)];
     clickCountText3++;
   });
 
-  function colorNum(clickCount) {
-    return clickCount % COLORS.length;
-  }
+}
+function colorNum(clickCount, COLORS) {
+  return clickCount % COLORS.length;
 }
 
-export { sum, colorParagraph };
+colorParagraph();
+
+export { sum, colorNum };
