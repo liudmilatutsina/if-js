@@ -14,29 +14,31 @@ function colorParagraph() {
   const text2 = document.getElementById('text2');
   const text3 = document.getElementById('text3');
 
-  let clickCountText1 = 0;
-  let clickCountText2 = 0;
-  let clickCountText3 = 0;
+  let click_count_text1 = 0;
+  let click_count_text2 = 0;
+  let click_count_text3 = 0;
 
   text1.addEventListener('click', (event) => {
-    event.target.style.color = COLORS[colorNum(clickCountText1, COLORS)];
-    clickCountText1++;
+    event.target.style.color = COLORS[colorNum(click_count_text1, COLORS.length)];
+    click_count_text1++;
   });
 
   text2.addEventListener('click', (event) => {
-    event.target.style.color = COLORS[colorNum(clickCountText2, COLORS)];
-    clickCountText2++;
+    event.target.style.color = COLORS[colorNum(click_count_text2, COLORS.length)];
+    click_count_text2++;
   });
 
   text3.addEventListener('click', (event) => {
-    event.target.style.color = COLORS[colorNum(clickCountText3, COLORS)];
-    clickCountText3++;
+    event.target.style.color = COLORS[colorNum(click_count_text3, COLORS.length)];
+    click_count_text3++;
   });
 }
-function colorNum(clickCount, COLORS) {
-  return clickCount % COLORS.length;
+function colorNum(click_count, colours_lenght) {
+  return click_count % colours_lenght;
 }
 
-colorParagraph();
+document.addEventListener('DOMContentLoaded', () => {
+  colorParagraph();
+});
 
-export { sum, colorNum };
+// export { sum, colorNum }; // uncomment for tests
