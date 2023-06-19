@@ -1,47 +1,68 @@
-// #1
-export function sum(a) {
-  return function (b) {
-    return a + b;
-  };
+function dateTransform(date) {
+  return date.split('-').reverse().join('.');
 }
-console.log(sum(5)(2));
+dateTransform('2020-08-26');
 
-// #2
-export function colorNum(click_count, colours_length) {
-  return click_count % colours_length;
+//#2
+
+const data = [
+  {
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    hotel: 'Hotel Leopold',
+  },
+  {
+    country: 'Spain',
+    city: 'Santa Cruz de Tenerife',
+    hotel: 'Apartment Sunshine',
+  },
+  {
+    country: 'Slowakia',
+    city: 'Vysokie Tatry',
+    hotel: 'Villa Kunerad',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hostel Friendship',
+  },
+  {
+    country: 'Indonesia',
+    city: 'Bali',
+    hotel: 'Ubud Bali Resort&SPA',
+  },
+  {
+    country: 'Netherlands',
+    city: 'Rotterdam',
+    hotel: 'King Kong Hostel',
+  },
+  {
+    country: 'Marocco',
+    city: 'Ourika',
+    hotel: 'Rokoko Hotel',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hotel Rehberge Berlin Mitte',
+  },
+];
+
+function arraySearch(search_word) {
+  const matches = [];
+
+  for (let i = 0; i < data.length; i++) {
+    if (
+      data[i].country.toLowerCase().includes(search_word.toLowerCase()) ||
+      data[i].city.toLowerCase().includes(search_word.toLowerCase()) ||
+      data[i].hotel.toLowerCase().includes(search_word.toLowerCase())
+    ) {
+      matches.push(`${data[i].country}, ${data[i].city}, ${data[i].hotel}`);
+    }
+  }
+  return matches;
 }
 
-function colorParagraph() {
-  const COLORS = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+arraySearch('morocco');
 
-  const text1 = document.getElementById('text1');
-  const text2 = document.getElementById('text2');
-  const text3 = document.getElementById('text3');
-
-  let click_count_text1 = 0;
-  let click_count_text2 = 0;
-  let click_count_text3 = 0;
-
-  text1.addEventListener('click', (event) => {
-    event.target.style.color =
-      COLORS[colorNum(click_count_text1, COLORS.length)];
-    click_count_text1++;
-  });
-
-  text2.addEventListener('click', (event) => {
-    event.target.style.color =
-      COLORS[colorNum(click_count_text2, COLORS.length)];
-    click_count_text2++;
-  });
-
-  text3.addEventListener('click', (event) => {
-    event.target.style.color =
-      COLORS[colorNum(click_count_text3, COLORS.length)];
-    click_count_text3++;
-  });
-}
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  colorParagraph();
-});
+// export { dateTransform, arraySearch };

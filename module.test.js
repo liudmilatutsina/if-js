@@ -1,13 +1,16 @@
-import { sum, colorNum } from './main.js';
+import { dateTransform, arraySearch } from './main.js';
 
-test('1 + 2 = 3', () => {
-  expect(sum(1)(2)).toBe(3);
+test('data func check', () => {
+  expect(dateTransform('2020-08-26')).toBe('26.08.2020');
+  expect(dateTransform('1997-10-06')).toBe('06.10.1997');
 });
 
-test('Checking color function', () => {
-  expect(colorNum(0, 5)).toBe(0);
-  expect(colorNum(3, 5)).toBe(3);
-  expect(colorNum(4, 5)).toBe(4);
-  expect(colorNum(5, 5)).toBe(0);
-  expect(colorNum(6, 5)).toBe(1);
+test('array search check', () => {
+  expect(arraySearch('Berlin')).toStrictEqual([
+    'Germany, Berlin, Hostel Friendship',
+    'Germany, Berlin, Hotel Rehberge Berlin Mitte',
+  ]);
+  expect(arraySearch('Marocco')).toStrictEqual([
+    'Marocco, Ourika, Rokoko Hotel',
+  ]);
 });
