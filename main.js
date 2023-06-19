@@ -1,7 +1,7 @@
 function dateTransform(date) {
   return date.split('-').reverse().join('.');
 }
-console.log(dateTransform('2020-08-26'));
+dateTransform('2020-08-26');
 
 //#2
 
@@ -48,18 +48,21 @@ const data = [
   },
 ];
 
-function arraySearch (search_word) {
+function arraySearch(search_word) {
   const matches = [];
 
   for (let i = 0; i < data.length; i++) {
-    console.log(data[i]);
-    if (data[i].country.includes(search_word) || data[i].city.includes(search_word) || data[i].hotel.includes(search_word)) {
+    if (
+      data[i].country.toLowerCase().includes(search_word.toLowerCase()) ||
+      data[i].city.toLowerCase().includes(search_word.toLowerCase()) ||
+      data[i].hotel.toLowerCase().includes(search_word.toLowerCase())
+    ) {
       matches.push(`${data[i].country}, ${data[i].city}, ${data[i].hotel}`);
     }
   }
   return matches;
 }
 
-console.log(arraySearch('Marocco'));
+arraySearch('morocco');
 
-export { dateTransform, arraySearch }
+// export { dateTransform, arraySearch };

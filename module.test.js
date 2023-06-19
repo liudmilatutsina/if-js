@@ -6,6 +6,11 @@ test('data func check', () => {
 });
 
 test('array search check', () => {
-  expect(arraySearch('Berlin')).toStrictEqual(['Germany, Berlin, Hostel Friendship', 'Germany, Berlin, Hotel Rehberge Berlin Mitte']);
-  expect(arraySearch('Marocco')).toStrictEqual(['Marocco, Ourika, Rokoko Hotel']);
+  expect(arraySearch('Berlin')).toStrictEqual([
+    'Germany, Berlin, Hostel Friendship',
+    'Germany, Berlin, Hotel Rehberge Berlin Mitte',
+  ]);
+  expect(arraySearch('Marocco')).toStrictEqual([
+    'Marocco, Ourika, Rokoko Hotel',
+  ]);
 });
